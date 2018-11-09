@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ContactMenuComponent } from './contact-menu/contact-menu.component';
+import {SearchComponent} from "./search/search.component";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactMenuComponent
+    SearchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
