@@ -1,0 +1,69 @@
+<img src="https://www.mastercard.ru/etc/designs/mccom/ru-ru/jcr:content/global/logo.img.png/1511369677358.png">
+<section class="cont">
+
+  <div id="videoplay">
+    <video autoplay muted loop id="video">
+      <source src="../../assets/mainvideo2_1.mp4" type="video/mp4">
+    </video>
+
+    <div id="content-form">
+      <h2><p align="center">Хотите снять или положить деньги?</p></h2>
+      <h5><p align="center">Найдите банкомат или магазин, в котором можно снять деньги на кассе</p></h5>
+
+      <div class="form-row" >
+        <div class="col">
+          <select class="form-control">
+            <option disabled><p >Выберите банк</p></option>
+            <option>Сбербанк</option>
+            <option>Газпромбанк</option>
+            <option>АЛЬФА-БАНК</option>
+            <option>Банк ВТБ</option>
+            <option>БИНБАНК</option>
+          </select>
+        </div>
+      </div>
+
+      <p></p>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Введите адрес или место" aria-label="Введите адресс или место" aria-describedby="button-addon">
+
+      </div>
+
+      <p></p>
+
+      <div class="form-row" >
+        <div class="col">
+          <select class="form-control">
+            <option disabled><p >Выберите расстояние до ближайшего пункта снятия/внесения наличиных</p></option>
+            <option>Менее 1 км</option>
+            <option>1-2 км</option>
+            <option>2-3 км</option>
+            <option>4-5 км</option>
+            <option>Более 5 км</option>
+          </select>
+        </div>
+      </div>
+
+      <p></p>
+
+      <div class="form-row" >
+        <div class="col">
+          <select class="form-control">
+            <option disabled><p >Выберите технологию</p></option>
+            <option>Контактная карта</option>
+            <option>Бесконтактная карта</option>
+            <option>Мобильное устройство</option>
+          </select>
+        </div>
+      </div>
+
+     <div class="btn-search">
+       <button mdbBtn type="button" gradient="peach" size="lg" mdbWavesEffect>Найти</button>
+     </div>
+    </div>
+
+  </div>
+</section>
+
+<router-outlet></router-outlet>
