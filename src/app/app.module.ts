@@ -11,6 +11,8 @@ import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+//import { InMemoryDataService } from './in-memory-data.service';
 
 
 @NgModule({
@@ -27,7 +29,12 @@ import { FormsModule } from '@angular/forms';
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule,
+   // HttpClientInMemoryWebApiModule.forRoot(
+   //   InMemoryDataService, { dataEncapsulation: false }
+   // )
+    //
   ],
   providers: [],
   bootstrap: [AppComponent]

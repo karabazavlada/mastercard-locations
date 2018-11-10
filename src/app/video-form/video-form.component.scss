@@ -24,12 +24,11 @@
     z-index: -1;
     width: 100%;
     height: 100%;
+
   }
 }
 
-@media (min-aspect-ratio: 16/9) { #videoplay > video { height: 300%; top: -100%; }}
-@media (max-aspect-ratio: 16/9) { #videoplay > video { width: 300%; left: -100%; }}
-@supports (object-fit: cover) {#videoplay > video { top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }}
+
 
 #content-form {
   padding: 20px;
@@ -68,6 +67,26 @@ select {
   text-align: center;
   margin-top: 7px;
 }
+
+@media (min-aspect-ratio: 16/9) { #videoplay > video { height: 300%; top: -100%; }}
+@media (max-aspect-ratio: 16/9) { #videoplay > video { width: 300%; left: -100%; }}
+@media (max-aspect-ratio: 16/9) { #videoplay > video { width: 300%; left: -100%; }}
+@supports (object-fit: cover) {#videoplay > video { top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; } }
+
+@media (max-device-height: 823px) and (max-device-width: 411px) {#content-form { width: 80%; height: 60%}}
+@media (max-device-height: 813px) and (max-device-width: 375px) {#content-form { width: 80%; height: 65%}}
+@media (max-device-height: 760px) and (max-device-width: 414px) {#content-form { width: 80%; height: 67%}}
+@media (max-device-height: 731px) and (max-device-width: 411px) {#content-form { width: 80%; height: 67%}; p {font-size: smaller}}
+@media (max-device-height: 667px) and (max-device-width: 375px) {#content-form { width: 80%; height: 70%}; p {font-size: smaller}}
+@media (max-device-height: 568px) and (max-device-width: 320px) {#content-form { width: 80%; height: 70%}; h5 {font-size: 14px}; h2 {font-size: 20px}}
+
+@media (max-device-width: 823px) and (max-device-height: 414px) {#content-form { width: 80%; height: 65%};h5 {font-size: 12px; }; h2 {font-size: 18px; }; p {  margin-top: 0em; margin-bottom: 1em;}; .zag {margin-top: 0em; margin-bottom: 0em; top:0;}; .custom {height:20px; tab-size: 10px; font-size: 12px; min-height: 0px;}; button {height: 40px}}
+@media (max-device-width: 812px) and (max-device-height: 375px) {#content-form { width: 80%; height: 65%};h5 {font-size: 12px; }; h2 {font-size: 15px; }; p {  margin-top: 0em; margin-bottom: 0.75em;}; .zag {margin-top: 0em; margin-bottom: 0em; top:0;}; .custom {height:20px; tab-size: 10px; font-size: 12px; min-height: 0px;}; button {height: 40px}}
+
+@media (max-device-width: 731px) and (max-device-height: 411px) {#content-form { width: 80%; height: 68%}; h5 {font-size: 10px; }; h2 {font-size: 12px; }; p {  margin-top: 0em; margin-bottom: 1em;}; .zag {margin-top: 0em; margin-bottom: 0em; top:0;}; .custom {height:20px; tab-size: 10px; font-size: 12px; min-height: 0px;}; button {height: 40px}}
+@media (max-device-width: 667px) and (max-device-height: 375px) {#content-form { width: 80%; height: 68%}; h5 {font-size: 10px; }; h2 {font-size: 12px; }; p {  margin-top: 0em; margin-bottom: 1em;}; .zag {margin-top: 0em; margin-bottom: 0em; top:0;}; .custom {height:20px; tab-size: 10px; font-size: 12px; min-height: 0px;}; button {height: 40px}}
+@media (max-device-width: 568px) and (max-device-height: 320px) {#content-form { width: 80%; height: 70%}; h5 {font-size: 10px}; h2 {font-size: 12px} ; p {  margin-top: 0em; margin-bottom: 1em;}; .zag {margin-top: 0em; margin-bottom: 0em; top:0;}; .custom {height:20px; tab-size: 10px; font-size: 12px; min-height: 0px;}; button {height: 40px}}
+
 
 
 

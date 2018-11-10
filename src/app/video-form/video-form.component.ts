@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { ChangeDetectionStrategy, Input, SimpleChanges } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { Subject, Observable, of, concat } from 'rxjs';
 import { distinctUntilChanged, debounceTime, switchMap, tap, catchError } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
@@ -56,9 +56,8 @@ export class VideoFormComponent implements OnInit {
   constructor (private http: HttpClient) {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
-  }
+
+
   getDestinations(search: string) {
     console.log(search);
     this.geolocationLoading = true;
@@ -71,12 +70,13 @@ export class VideoFormComponent implements OnInit {
     return this.dest;
   }
   customSearchFn(term: string, item: any) {
-    if (term.length > 2) {
+    if (term.length > 2){
     console.log(this);
     }
     item = this.destinations;
   }
-  ngOnInit() {
+
+  ngOnInit(){
     $(document).ready(function() {
       $('#bank').on('change', function() {
         $(this).css('color', '#000');
@@ -109,5 +109,13 @@ export class VideoFormComponent implements OnInit {
     this.dest.forEach(x => {this.destinations = x; });
   }
 
+  onSearch(event:any)
+  {
 
+    //console.log(pos)
+    this.http.get('http://95.213.28.144/api/values/45.23424-45.123213' )
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 }
