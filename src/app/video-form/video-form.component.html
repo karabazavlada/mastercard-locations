@@ -10,9 +10,10 @@
       <h2><p align="center">Хотите снять или положить деньги?</p></h2>
       <h5><p align="center">Найдите банкомат или магазин, в котором можно снять деньги на кассе</p></h5>
 
-      <div class="form-row" >
-        <div class="col">
+
+
           <select class="form-control" id="bank"  onchange="setColor(this);">
+
             <option disabled value=""><p>Выберите банк</p></option>
             <option value="sber">Сбербанк</option>
             <option value="gazpr">Газпромбанк</option>
@@ -20,15 +21,24 @@
             <option value="vtb">Банк ВТБ</option>
             <option value="binbank">БИНБАНК</option>
           </select>
-        </div>
-      </div>
+
 
       <p></p>
 
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" id="mesto" onchange="setColor(this);" placeholder="Введите адрес или место" aria-label="Введите адресс или место" aria-describedby="button-addon">
 
-      </div>
+
+      <ng-select class="custom"  [items]="destinations"
+                   [loading]="geolocationLoading"
+                   [typeahead]="searchBox$"
+                   bindLabel = "GeoObject.name"
+                   bindValue = "GeoObject.Point.pos"
+                   [(ngModel)]="selectGeo"
+                   >
+        <ng-template ng-option-tmp  let-item="item">
+          {{item.GeoObject.description}} - {{item.GeoObject.name}}
+        </ng-template>
+
+      </ng-select>
 
       <p></p>
 

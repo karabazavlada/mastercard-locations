@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "@ng-select/ng-select": "^2.12.0",
     "@types/chart.js": "^2.7.40",
     "angular-bootstrap-md": "^6.2.6",
     "angular5-csv": "^0.2.10",
