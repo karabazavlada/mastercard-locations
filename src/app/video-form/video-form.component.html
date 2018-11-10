@@ -12,15 +12,11 @@
 
 
 
-          <select class="form-control" id="bank"  onchange="setColor(this);">
 
-            <option disabled value=""><p>Выберите банк</p></option>
-            <option value="sber">Сбербанк</option>
-            <option value="gazpr">Газпромбанк</option>
-            <option value="alfa">АЛЬФА-БАНК</option>
-            <option value="vtb">Банк ВТБ</option>
-            <option value="binbank">БИНБАНК</option>
-          </select>
+      <ng-select class="custom"  [items]="banks"
+                 placeholder="Выберите банк"
+      >
+      </ng-select>
 
 
       <p></p>
@@ -33,8 +29,11 @@
                    bindLabel = "GeoObject.name"
                    bindValue = "GeoObject.Point.pos"
                    [(ngModel)]="selectGeo"
+                 placeholder="Введите улицу"
+                 typeToSearchText="Начните вводить улицу, чтобы начать поиск"
+                 notFoundText="По Вашему запросу ничего не найдено :("
                    >
-        <ng-template ng-option-tmp  let-item="item">
+        <ng-template ng-option-tmp  let-item="item"  >
           {{item.GeoObject.description}} - {{item.GeoObject.name}}
         </ng-template>
 
@@ -42,31 +41,18 @@
 
       <p></p>
 
-      <div class="form-row" >
-        <div class="col">
-          <select class="form-control" id="dist" onchange="setColor(this);">
-            <option disabled value=""><p >Выберите расстояние до ближайшего пункта снятия/внесения наличиных</p></option>
-            <option value="1">Менее 1 км</option>
-            <option value="2">1-2 км</option>
-            <option value="3">2-3 км</option>
-            <option value="4">4-5 км</option>
-            <option value="5">Более 5 км</option>
-          </select>
-        </div>
-      </div>
+      <ng-select class="custom"  [items]="kms"
+                 placeholder="Выберите банк"
+      >
+      </ng-select>
+
 
       <p></p>
+      <ng-select class="custom"  [items]="techs"
+                 placeholder="Выберите технологию"
+      >
+      </ng-select>
 
-      <div class="form-row" >
-        <div class="col">
-          <select class="form-control" id="technic" onchange="setColor(this);">
-            <option disabled><p >Выберите технологию</p></option>
-            <option>Контактная карта</option>
-            <option>Бесконтактная карта</option>
-            <option>Мобильное устройство</option>
-          </select>
-        </div>
-      </div>
 
 
 

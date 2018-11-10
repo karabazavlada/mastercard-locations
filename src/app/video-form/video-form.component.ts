@@ -3,8 +3,9 @@ import * as $ from 'jquery';
 import { ChangeDetectionStrategy, Input, SimpleChanges } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable, of, concat } from 'rxjs';
-import { distinctUntilChanged, debounceTime, switchMap, tap, catchError } from 'rxjs/operators'
+import { distinctUntilChanged, debounceTime, switchMap, tap, catchError } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-video-form',
@@ -13,65 +14,99 @@ import { FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class VideoFormComponent implements OnInit {
+
+  public banks: Array<string> = ['Сбербанк', 'Газпромбанк', 'АЛЬФА-БАНК', 'Банк ВТБ', 'БИНБАНК'];
+  public kms: Array<string> = ['Менее 1 км', '1-2 км', '2-3 км', '3-5 км', 'Более 5 км'];
+  public techs: Array<string> = ['Контактная карта', 'Бесконтактная карта', 'Мобильное устройство'];
+  private value:any = {};
+  private _disabledV:string = '0';
+  private disabled:boolean = false;
+
+  private get disabledV():string {
+    return this._disabledV;
+  }
+
+  private set disabledV(value:string) {
+    this._disabledV = value;
+    this.disabled = this._disabledV === '1';
+  }
+
+  public selected(value:any):void {
+    console.log('Selected value is: ', value);
+  }
+
+  public removed(value:any):void {
+    console.log('Removed value is: ', value);
+  }
+
+  public typed(value:any):void {
+    console.log('New search input: ', value);
+  }
+
+  public refreshValue(value:any):void {
+    this.value = value;
+  }
+
   destinations: any[];
-  dest: Observable<any[]>
+  dest: Observable<any[]>;
   geolocationLoading: boolean;
   searchBox: string;
   searchBox$ = new Subject<string>();
   selectGeo: any;
-  constructor (private http:HttpClient){
+  constructor (private http: HttpClient) {
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // changes.prop contains the old and the new value...
   }
-  getDestinations(search:string){
-    console.log(search)
-    this.geolocationLoading = true
+  getDestinations(search: string) {
+    console.log(search);
+    this.geolocationLoading = true;
     this.http.get('https://geocode-maps.yandex.ru/1.x/?format=json&lan=ru_RU&geocode=' + search)
-    .subscribe((data:any)=> this.dest = data["response"]["GeoObjectCollection"]["featureMember"]);
+    .subscribe((data: any) => this.dest = data['response']['GeoObjectCollection']['featureMember']);
     this.destinations = [];
     this.dest.forEach(x => {
-      this.destinations.push(x)});
-    this.geolocationLoading = false
-    return this.dest
+      this.destinations.push(x); });
+    this.geolocationLoading = false;
+    return this.dest;
   }
-  customSearchFn(term: string, item: any){
-    if(term.length > 2)
-    console.log(this)
-    item = this.destinations
+  customSearchFn(term: string, item: any) {
+    if (term.length > 2) {
+    console.log(this);
+    }
+    item = this.destinations;
   }
   ngOnInit() {
-    $(document).ready(function(){
-      $("#bank").on("change", function(){
-        $(this).css("color", "#000");
+    $(document).ready(function() {
+      $('#bank').on('change', function() {
+        $(this).css('color', '#000');
       });
     });
 
-    $(document).ready(function(){
-      $("#mesto").on("change", function(){
-        $(this).css("color", "#000");
+    $(document).ready(function() {
+      $('#mesto').on('change', function() {
+        $(this).css('color', '#000');
       });
     });
 
-    $(document).ready(function(){
-      $("#dist").on("change", function(){
-        $(this).css("color", "#000");
+    $(document).ready(function() {
+      $('#dist').on('change', function() {
+        $(this).css('color', '#000');
       });
     });
 
-    $(document).ready(function(){
-      $("#technic").on("change", function(){
-        $(this).css("color", "#000");
+    $(document).ready(function() {
+      $('#technic').on('change', function() {
+        $(this).css('color', '#000');
       });
     });
     this.dest = this.searchBox$.pipe(
          debounceTime(200),
          distinctUntilChanged(),
          switchMap(term => this.getDestinations(term))
-      )
+      );
 
-    this.dest.forEach(x => {this.destinations = x});
+    this.dest.forEach(x => {this.destinations = x; });
   }
 
 
