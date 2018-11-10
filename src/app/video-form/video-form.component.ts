@@ -17,7 +17,7 @@ export class VideoFormComponent implements OnInit {
 
   public banks: Array<string> = ['Сбербанк', 'Газпромбанк', 'АЛЬФА-БАНК', 'Банк ВТБ', 'БИНБАНК'];
   public kms: Array<string> = ['Менее 1 км', '1-2 км', '2-3 км', '3-5 км', 'Более 5 км'];
-  public techs: Array<string> = ['Контактная карта', 'Бесконтактная карта', 'Мобильное устройство'];
+  public techs: Array<string> = ['Контактная карта', 'Бесконтактная карта', 'Мобильное устройство', 'Сервис "Наличные с покупкой"'];
   private value:any = {};
   private _disabledV:string = '0';
   private disabled:boolean = false;
