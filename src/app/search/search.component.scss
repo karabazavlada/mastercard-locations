@@ -2,8 +2,20 @@
 {
   font-weight: bolder;
 }
-.active
-{
+.active {
   background-color: #B1FFC8;
   border-color: #B1FFC8;
+  div {
+    color: black;
+  }
+  small {
+    color: black;
+  }
+}
+
+a:hover
+{
+  background-color: #ffb39d;
+  border-color: #ffb39d;
+
 }
