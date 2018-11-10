@@ -14,6 +14,11 @@ import { FormGroup } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class VideoFormComponent implements OnInit {
+  location = {};
+  setPosition(position){
+    this.location = position.coords;
+    console.log(position.coords);
+  }
 
   public banks: Array<string> = ['Сбербанк', 'Газпромбанк', 'АЛЬФА-БАНК', 'Банк ВТБ', 'БИНБАНК'];
   public kms: Array<string> = ['Менее 1 км', '1-2 км', '2-3 км', '3-5 км', 'Более 5 км'];
@@ -77,6 +82,15 @@ export class VideoFormComponent implements OnInit {
     item = this.destinations;
   }
   ngOnInit() {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log(position.coords);
+      });
+    }
+
+    console.log(this.location);
+
     $(document).ready(function() {
       $('#bank').on('change', function() {
         $(this).css('color', '#000');
@@ -107,6 +121,7 @@ export class VideoFormComponent implements OnInit {
       );
 
     this.dest.forEach(x => {this.destinations = x; });
+
   }
 
 
