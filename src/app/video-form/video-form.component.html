@@ -23,12 +23,17 @@
       </div>
 
       <p></p>
-
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Введите адрес или место" aria-label="Введите адресс или место" aria-describedby="button-addon">
-
-      </div>
-
+      <ng-select   [items]="destinations"
+                   [loading]="geolocationLoading"
+                   [typeahead]="searchBox$"
+                   bindLabel = "GeoObject.name"
+                   bindValue = "GeoObject.Point.pos"
+                   [(ngModel)]="selectGeo"
+                   >
+                   <ng-template ng-option-tmp let-item="item">
+                      {{item.GeoObject.description}} - {{item.GeoObject.name}}
+                  </ng-template>
+      </ng-select>
       <p></p>
 
       <div class="form-row" >
