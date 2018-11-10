@@ -47,24 +47,31 @@
   opacity: 0.9;
 }
 
+
 select {
-  color: #a1a1a1;
-}
-option {
-  color: #000;
-}
-option:first-child {
+  -webkit-appearance: menulist-button;
   color: #a1a1a1;
 }
 
+select:disabled {
+  color: #a1a1a1;
+}
+
+
 ::placeholder {
   color: #a1a1a1;
+}
+
+:placeholder-shown {
+  color: #000;
 }
 
 .btn-search {
   text-align: center;
   margin-top: 7px;
 }
+
+
 
 
 
