@@ -109,5 +109,11 @@ export class VideoFormComponent implements OnInit {
     this.dest.forEach(x => {this.destinations = x; });
   }
 
-
+onSearch(event:any)
+{
+  this.http.get('http://95.213.28.144/api/values/45.23424-45.123213')
+    .subscribe(data=> {
+      console.log(data);
+    });
+}
 }
