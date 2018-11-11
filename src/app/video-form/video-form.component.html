@@ -2,13 +2,13 @@
 <section class="cont">
 
   <div id="videoplay">
-    <video autoplay muted loop id="video">
+    <video preload="auto" autoplay muted loop="loop" playsinline="playsinline" id="video">
       <source src="../../assets/mainvideo_1.mp4" type="video/mp4">
     </video>
 
     <div id="content-form">
-      <h2><p align="center">Хотите снять или положить деньги?</p></h2>
-      <h5><p align="center">Найдите банкомат или магазин, в котором можно снять деньги на кассе</p></h5>
+      <h2><p class="zag" align="center">Хотите снять или положить деньги?</p></h2>
+      <h5><p class="zag" align="center">Найдите банкомат или магазин, в котором можно снять деньги на кассе</p></h5>
 
 
 
@@ -55,7 +55,8 @@
 
      <p></p>
       <div class="btn-search">
-        <a (click)="onSearch($event)" routerLink="/search"> <button mdbBtn type="button" gradient="peach" size="lg" mdbWavesEffect>Найти</button></a>
+
+        <a (click)="onSearch($event)" routerLink="/search"> <button mdbBtn type="button" gradient="peach" size="lg" mdbWavesEffect>Найти</button> </a>
       </div>
     </div>
 

@@ -1,6 +1,8 @@
+
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <div class="list-group" *ngFor="let item of array">
   <a routerLink="/"  class="list-group-item list-group-item-action flex-column align-items-start hover">
+
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{item.id}}. {{item.Name}}</h5>
       <small class="text-muted">~{{item.Distance}} км</small>
@@ -12,10 +14,13 @@
     <div class="d-flex w-100 justify-content-between">
     <small>{{item.WorkTime}}</small>
     </div>
+
     <div class="d-flex w-100 justify-content-between">
       <small>{{item.Money}}</small>
       <i class="fa fa-chevron-down" aria-hidden="true"></i>
     </div>
+
+
 
   </a>
 
